@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import IProduct from '../interfaces/product/product-interface';
 import IProductModel from '../interfaces/product/product-model-interface';
 import db from './connection';
@@ -12,6 +12,15 @@ class ProductModel implements IProductModel {
     VALUES (?, ?)`;
     const [{ insertId }] = await db.execute<ResultSetHeader>(query, [name, amount]);
     return insertId;
+  };
+
+  getAll = async (): Promise<IProduct[]> => {
+    const query = `
+    SELECT *
+    FROM Trybesmith.Products
+    `;
+    const [products] = await db.execute<RowDataPacket[]>(query);
+    return products as IProduct[];
   };
 }
 

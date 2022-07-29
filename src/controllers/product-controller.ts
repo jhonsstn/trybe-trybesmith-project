@@ -5,8 +5,13 @@ import IProductService from '../interfaces/product/product-service-interface';
 export default class ProductController implements IProductController {
   constructor(readonly productService: IProductService) {}
 
-  async add(product: IProduct): Promise<IProduct> {
+  add = async (product: IProduct): Promise<IProduct> => {
     const productId = await this.productService.add(product);
     return { id: productId, ...product };
-  }
+  };
+
+  getAll = async (): Promise<IProduct[]> => {
+    const products = await this.productService.getAll();
+    return products;
+  };
 }
