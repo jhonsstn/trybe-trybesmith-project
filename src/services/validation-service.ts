@@ -4,7 +4,7 @@ import UnprocessableEntityError from '../errors/unprocessable-entity-error';
 import IValidator from '../interfaces/validator-interface';
 
 class Validator implements IValidator {
-  constructor(readonly schema: ObjectSchema) {}
+  constructor(private schema: ObjectSchema) {}
 
   validate = (data: unknown): void => {
     const { error } = this.schema.validate(data);

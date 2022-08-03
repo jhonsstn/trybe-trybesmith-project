@@ -7,9 +7,9 @@ import IValidator from '../interfaces/validator-interface';
 
 class SignInController implements ISignInControllerInterface {
   constructor(
-    readonly validator: IValidator,
-    readonly userModel: IUserModel,
-    readonly authenticator: IAuthenticator,
+    private validator: IValidator,
+    private userModel: IUserModel,
+    private authenticator: IAuthenticator,
   ) {}
 
   signIn = async (data: ISignInData): Promise<string> => {

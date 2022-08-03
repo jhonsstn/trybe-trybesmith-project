@@ -4,7 +4,7 @@ import IOrderService from '../interfaces/order/order-service-interface';
 import IOrders from '../interfaces/order/orders-interface';
 
 class OrderService implements IOrderService {
-  constructor(readonly orderModel: IOrderModel) {}
+  constructor(private orderModel: IOrderModel) {}
 
   getAll = async (): Promise<IOrder[]> => {
     const orderList = await this.orderModel.getAll();

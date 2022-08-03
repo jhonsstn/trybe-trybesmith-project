@@ -5,8 +5,8 @@ import IUserService from '../interfaces/user/user-service-interface';
 
 export default class UserController implements IUserController {
   constructor(
-    readonly authenticator: IAuthenticator,
-    readonly userService: IUserService,
+    private authenticator: IAuthenticator,
+    private userService: IUserService,
   ) {}
 
   add = async (user: IUser): Promise<string> => {
