@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import IUser from '../interfaces/user/user-interface';
 import IUserModel from '../interfaces/user/user-model-interface';
 import db from './connection';
@@ -10,11 +10,21 @@ class UserModel implements IUserModel {
     INSERT INTO
     Trybesmith.Users (username, classe, level, password)
     VALUES (?, ?, ?, ?)`;
-    const [{ insertId }] = await db.execute<ResultSetHeader>(
-      query,
-      [username, classe, level, password],
-    );
+    const [{ insertId }] = await db.execute<ResultSetHeader>(query, [
+      username,
+      classe,
+      level,
+      password,
+    ]);
     return insertId;
+  };
+
+  getById = async (username: string): Promise<IUser> => {
+    const query = `
+    SELECT * FROM Trybesmith.Users
+    WHERE username = ?`;
+    const [[user]] = await db.execute<RowDataPacket[]>(query, [username]);
+    return user as IUser;
   };
 }
 
