@@ -9,6 +9,11 @@ class UserService implements IUserService {
     const userId = await this.userModel.add(user);
     return userId;
   };
+
+  getByUsername = async (username: string): Promise<IUser> => {
+    const user = await this.userModel.getByUsername(username);
+    return user;
+  };
 }
 
 export default UserService;

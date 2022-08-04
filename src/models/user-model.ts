@@ -19,7 +19,7 @@ class UserModel implements IUserModel {
     return insertId;
   };
 
-  getById = async (username: string): Promise<IUser> => {
+  getByUsername = async (username: string): Promise<IUser> => {
     const query = `
     SELECT * FROM Trybesmith.Users
     WHERE username = ?`;
