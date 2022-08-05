@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/login",
-    "url": "localhost:3000/products",
+    "url": "localhost:3000/users",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-08-04T14:58:26.605Z",
-    "modified": "2022-08-05T13:03:11.328Z",
+    "modified": "2022-08-05T13:17:20.762Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Es\",\n  \"amount\": \"30 peças de ouro\"\n}",
+      "raw": "{\n  \"username\": \"MAX\",\n  \"classe\": \"swordsman\",\n  \"level\": 0,\n  \"password\": \"Saving\"\n}",
       "form": []
     },
     "tests": []
