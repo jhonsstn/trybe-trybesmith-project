@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/login",
-    "url": "localhost:3000/login",
+    "url": "localhost:3000/products",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-08-04T14:58:26.605Z",
-    "modified": "2022-08-04T15:20:30.147Z",
+    "modified": "2022-08-05T13:03:11.328Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"reigal\",\n  \"password\": \"1dragaonoceu\"\n}",
+      "raw": "{\n  \"name\": \"Es\",\n  \"amount\": \"30 peças de ouro\"\n}",
       "form": []
     },
     "tests": []
