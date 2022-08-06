@@ -10,7 +10,10 @@ class ProductModel implements IProductModel {
     INSERT INTO
     Trybesmith.Products (name, amount)
     VALUES (?, ?)`;
-    const [{ insertId }] = await db.execute<ResultSetHeader>(query, [name, amount]);
+    const [{ insertId }] = await db.execute<ResultSetHeader>(query, [
+      name,
+      amount,
+    ]);
     return insertId;
   };
 
@@ -21,6 +24,15 @@ class ProductModel implements IProductModel {
     `;
     const [products] = await db.execute<RowDataPacket[]>(query);
     return products as IProduct[];
+  };
+
+  update = async (productId: number, orderId: number): Promise<void> => {
+    const query = `
+    UPDATE Trybesmith.Products
+    SET orderId = ?
+    WHERE id = ?
+    `;
+    await db.execute(query, [orderId, productId]);
   };
 }
 

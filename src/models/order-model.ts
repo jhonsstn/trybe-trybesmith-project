@@ -1,5 +1,5 @@
-import { RowDataPacket } from 'mysql2';
-import IOrder from '../interfaces/order/orders-interface';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import IOrder from '../interfaces/order/db-order-interface';
 import IOrderModel from '../interfaces/order/order-model-interface';
 import db from './connection';
 
@@ -13,6 +13,15 @@ class OrderModel implements IOrderModel {
     `;
     const [orders] = await db.execute<RowDataPacket[]>(query);
     return orders as IOrder[];
+  };
+
+  add = async (userId: number): Promise<number> => {
+    const query = `
+    INSERT INTO Trybesmith.Orders (userId)
+    VALUES (?)
+    `;
+    const [{ insertId }] = await db.execute<ResultSetHeader>(query, [userId]);
+    return insertId;
   };
 }
 

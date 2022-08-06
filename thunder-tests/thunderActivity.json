@@ -4,16 +4,21 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/login",
-    "url": "localhost:3000/users",
+    "url": "localhost:3000/orders",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-08-04T14:58:26.605Z",
-    "modified": "2022-08-05T13:17:20.762Z",
-    "headers": [],
+    "modified": "2022-08-06T16:49:15.565Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJyZWlnYWwiLCJjbGFzc2UiOiJHdWVycmVpcm8iLCJsZXZlbCI6MTAsImlhdCI6MTY1OTgwMzA3MH0.K09KDoaMnNaPjV-zM_HiZrCq0uzKqmPJTmuCpHFsQcY"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"MAX\",\n  \"classe\": \"swordsman\",\n  \"level\": 0,\n  \"password\": \"Saving\"\n}",
+      "raw": "{\n  \"productsIds\": [\"a\"]\n}",
       "form": []
     },
     "tests": []

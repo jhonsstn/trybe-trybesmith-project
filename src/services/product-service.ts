@@ -14,6 +14,10 @@ class ProductService implements IProductService {
     const products = await this.productModel.getAll();
     return products;
   };
+
+  update = async (productId: number, orderId: number): Promise<void> => {
+    await this.productModel.update(productId, orderId);
+  };
 }
 
 export default ProductService;
